@@ -163,7 +163,7 @@ Func getAllEmulators()
 	GUICtrlSetData($g_hCmbAndroidEmulator, '')
 
 	; Bluestacks :
-	$__BlueStacks_Version = RegRead($g_sHKLM & "\SOFTWARE\BlueStacks\", "Version")
+	$__BlueStacks_Version = RegRead($g_sHKLM & $__BlueStacks_RegPath, "Version")
 	If Not @error Then
 		If GetVersionNormalized($__BlueStacks_Version) < GetVersionNormalized("0.10") Then $sEmulatorString &= "BlueStacks|"
 		If GetVersionNormalized($__BlueStacks_Version) > GetVersionNormalized("1.0") Then $sEmulatorString &= "BlueStacks2|"
@@ -207,7 +207,7 @@ Func getAllEmulatorsInstances()
 			GUICtrlSetData($g_hCmbAndroidInstance, "Android", "Android")
 			Return
 		Case "BlueStacks2"
-			Local $VMsBlueStacks = RegRead($g_sHKLM & "\SOFTWARE\BlueStacks\", "DataDir")
+			Local $VMsBlueStacks = RegRead($g_sHKLM & $__BlueStacks_RegPath, "DataDir")
 			$sEmulatorPath = $VMsBlueStacks ; C:\ProgramData\BlueStacks\Engine
 		Case "Nox"
 			$sEmulatorPath = GetNoxPath() & "\BignoxVMS"  ; C:\Program Files\Nox\bin\BignoxVMS
