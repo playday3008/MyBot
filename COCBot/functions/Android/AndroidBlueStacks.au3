@@ -177,11 +177,10 @@ Func GetBlueStacks2AdbPath()
 EndFunc   ;==>GetBlueStacks2AdbPath
 
 Func SetBlueStacksRegPath()
-  $__BlueStacks_RegPath = "\SOFTWARE\BlueStacks"
-	Local $regVal = RegEnumVal($g_sHKLM & $__BlueStacks_RegPath & "Version", REG_SZ)
+	$__BlueStacks_Version = RegRead($g_sHKLM & $__BlueStacks_RegPath, "Version")
 	If Not @error Then Return
 	$__BlueStacks_RegPath = "\SOFTWARE\BlueStacks_bgp64_hyperv\"
-	$regVal = RegEnumVal($g_sHKLM & $__BlueStacks_RegPath & "Version", REG_SZ)
+	$__BlueStacks_Version = RegRead($g_sHKLM & $__BlueStacks_RegPath, "Version")
 	If Not @error Then $__BlueStacks_HyperV = true
 	Return
 EndFunc   ;==>SetBlueStacksRegPath

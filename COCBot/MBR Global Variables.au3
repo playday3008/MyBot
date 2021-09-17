@@ -406,8 +406,8 @@ Global Const $g_iCoCReconnectingTimeout = 60000 ; When still (or again) CoC reco
 ; Special Android Emulator variables
 Global $__BlueStacks_Version
 Global $__BlueStacks_Path
-Global $__BlueStacks_RegPath
-Global $__BlueStacks_HyperV
+Global $__BlueStacks_RegPath = "\SOFTWARE\BlueStacks"
+Global $__BlueStacks_HyperV = False
 Global $__MEmu_Path
 Global $__Nox_Path
 Global $__iTools_Path
